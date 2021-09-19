@@ -1,0 +1,2 @@
+class StopMethodException(BaseException):
+    pass

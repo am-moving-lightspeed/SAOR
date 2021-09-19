@@ -1,0 +1,2 @@
+class ProblemDefinitionException(BaseException):
+    pass
