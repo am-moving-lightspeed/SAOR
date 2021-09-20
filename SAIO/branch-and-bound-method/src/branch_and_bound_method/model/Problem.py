@@ -6,11 +6,16 @@ from typing import Tuple
 import numpy as np
 from numpy import ndarray
 
+from .ProblemDefinitionException import ProblemDefinitionException
+
 
 class Problem:
 
     def __init__(self, A: ndarray, b: ndarray, c: ndarray):
-        # TODO: exception
+        if not isinstance(A, ndarray) or not isinstance(b, ndarray) or not isinstance(c, ndarray):
+            raise ProblemDefinitionException
+        if A.shape[0] != b.shape[0] or A.shape[1] != c.shape[0]:
+            raise ProblemDefinitionException
         self._A: ndarray = A
         self._b: ndarray = b
         self._c: ndarray = c
